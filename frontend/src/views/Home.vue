@@ -90,6 +90,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: auto;
+  justify-content: center;
 }
 
 Movie {
