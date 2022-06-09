@@ -1,3 +1,7 @@
 <template>
-  <h1>This is an about page</h1>
+  <form>
+    <input type="button" value="0" id="btn" />
+  </form>
 </template>
+
+
