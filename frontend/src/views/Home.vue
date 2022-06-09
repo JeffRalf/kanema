@@ -1,15 +1,11 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <h1>Voilà une liste de films</h1>
+    <h1>Liste des films</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
+      Chercher son film :
+      <input type="text" v-model="title" placeholder="Écrire ici" />
     </p>
-    <h3>Les Films</h3>
-    <p>Chercher son film</p>
-    <input type="text" v-model="title" placeholder="Nom du film" />
     <div class="movie">
       <Movie
         v-for="movie in movies"
