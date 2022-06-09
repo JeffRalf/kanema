@@ -8,7 +8,7 @@
     <tbody>
       <tr>
         <td>{{ movie.original_title }}</td>
-        <a href="http://localhost:8080/:id">
+        <a href="http://localhost:8080/">
           <input type="button" value="More details" />
         </a>
       </tr>
