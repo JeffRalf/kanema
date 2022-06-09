@@ -1,0 +1,25 @@
+{
+  "name": "centrale-ei-web-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv nodemon ./server.js",
+    "start": "dotenv node ./server.js",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv-cli": "^5.1.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  }
+}
