@@ -11,11 +11,7 @@
     <p>Chercher son film</p>
     <input type="text" v-model="title" placeholder="Nom du film" />
     <div class="movie">
-      <Movie
-        v-for="movie in movies"
-        :movie="movie"
-        :id="movie.original_title"
-      ></Movie>
+      <Movie v-for="movie in movies" :movie="movie" :id="movie.title"></Movie>
     </div>
   </div>
 </template>
@@ -23,7 +19,6 @@
 <script>
 import axios from "axios";
 import Movie from "@/components/Movie.vue";
-import { onMounted } from "vue";
 
 export default {
   name: "Home",
@@ -37,15 +32,13 @@ export default {
     };
   },
   methods: {
-    fetchMovies: function () {
+    fetchMovies: async function () {
       axios
-        .get(
-          `https://api.themoviedb.org/3/discover/movie?api_key=522d421671cf75c2cba341597d86403a&sort_by=popularity.desc&page=1&with_watch_monetization_types=flatrate`
-        )
+        .get(`http://localhost:3000/movies`)
         .then((response) => {
           // Do something if call succeeded
-          for (var i = 0; i < response.data.results.length; i++) {
-            this.movies[i] = response.data.results[i];
+          for (var i = 0; i < response.data.movies.length; i++) {
+            this.movies[i] = response.data.movies[i];
             console.log(this.movies[i]);
           }
         })
@@ -62,12 +55,10 @@ export default {
     },
     newMovies: function () {
       for (var i = 0; i < this.movies.length; i++) {
-        if (this.checkName(this.movies[i].original_title)) {
-          document.getElementById(this.movies[i].original_title).style.display =
-            "";
+        if (this.checkName(this.movies[i].title)) {
+          document.getElementById(this.movies[i].title).style.display = "";
         } else {
-          document.getElementById(this.movies[i].original_title).style.display =
-            "none";
+          document.getElementById(this.movies[i].title).style.display = "none";
         }
       }
     },

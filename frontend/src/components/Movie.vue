@@ -2,12 +2,12 @@
   <table>
     <thead>
       <th>
-        <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" />
+        <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_url" />
       </th>
     </thead>
     <tbody>
       <tr>
-        <td>{{ movie.original_title }}</td>
+        <td>{{ movie.title }}</td>
         <input type="checkbox" />
       </tr>
     </tbody>
