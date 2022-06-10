@@ -4,7 +4,7 @@ const axios = require("axios");
 
 async function fetchMoviesFromTheMovieDatabase() {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=522d421671cf75c2cba341597d86403a&sort_by=popularity.desc&page=5&with_watch_monetization_types=flatrate`
+    `https://api.themoviedb.org/3/discover/movie?api_key=522d421671cf75c2cba341597d86403a&sort_by=popularity.desc&page=1&with_watch_monetization_types=flatrate`
   );
 
   return response.data.results;

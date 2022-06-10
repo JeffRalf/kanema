@@ -11,6 +11,14 @@ router.get("/", function (req, res) {
     });
 });
 
+router.get("/:movie_id/:viewer_id", async function (req, res) {
+  var rate = await RatingModel.findOne({
+    movie_id: req.params.movie_id,
+    viewer_id: req.params.viewer_id,
+  });
+  res.json(rate);
+});
+
 router.post("/new", async function (req, res) {
   // Create a new movie instance
   const newRating = new RatingModel({
@@ -35,12 +43,12 @@ router.post("/new", async function (req, res) {
   }
 });
 
-router.post("/:movie_id/:viewer_id", async function (req, res) {
+router.post("/:movie_id/:viewer_id/:rate", async function (req, res) {
   // Create a new movie instance
   const newRating = new RatingModel({
     viewer_id: req.params.viewer_id,
     movie_id: req.params.movie_id,
-    rate: req.body.rate,
+    rate: req.params.rate,
   });
 
   try {
@@ -59,13 +67,15 @@ router.post("/:movie_id/:viewer_id", async function (req, res) {
   }
 });
 
-router.put("/:movie_id/:viewer_id", async function (req, res) {
+router.put("/:movie_id/:viewer_id/:rate", async function (req, res) {
   try {
     const doc = await RatingModel.findOne({
       movie_id: req.params.movie_id,
       viewer_id: req.params.viewer_id,
     });
-    doc.rate = req.body.rate;
+    console.log(doc);
+    doc.rate = req.params.rate;
+    console.log(req.params.rate);
     await doc.save();
     RatingModel.find({})
       .populate("viewer_id")
