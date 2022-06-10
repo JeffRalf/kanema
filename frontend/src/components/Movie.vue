@@ -7,8 +7,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ movie.title }}</td>
-        <input type="checkbox" />
+        <td>{{ movie.original_title }}</td>
+        <a href="http://localhost:8080/">
+          <input type="button" value="More details" />
+        </a>
       </tr>
     </tbody>
   </table>
@@ -18,14 +20,6 @@
 export default {
   props: {
     movie: Object,
-  },
-  methods: {
-    increment: function () {
-      this.movie.vote_average += 0.1;
-    },
-    reduce: function () {
-      this.movie.vote_average -= 0.1;
-    },
   },
 };
 </script>
