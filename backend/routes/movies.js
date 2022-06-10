@@ -83,4 +83,9 @@ router.put("/:id", async function (req, res) {
   }
 });
 
+router.get("/:id", async function (req, res) {
+  const doc = await MovieModel.findById(req.params.id);
+  res.status(201).json(doc);
+});
+
 module.exports = router;

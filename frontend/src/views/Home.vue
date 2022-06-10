@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Vue logo" src="../assets/Chevre.png" />
     <h1>Liste des films</h1>
     <p>
       Chercher son film :

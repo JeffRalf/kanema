@@ -8,8 +8,13 @@
     <tbody>
       <tr>
         <td>{{ movie.title }}</td>
-        <a href="http://localhost:8080/">
-          <input type="button" value="More details" />
+        <a :href="`http://localhost:8080/movie/?id=` + movie._id.toString()">
+          <form
+            :action="`http://localhost:8080/movie/?id=` + movie._id.toString()"
+            method="get"
+          >
+            <input type="button" value="More details" />
+          </form>
         </a>
       </tr>
     </tbody>
