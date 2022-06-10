@@ -6,10 +6,10 @@
     </thead>
     <tbody>
       <tr v-for="movie in movies" :key="movie.email">
-        <td>{{ user.email }}</td>
-        <td>{{ user.firstName }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.date }}</td>
         <td>
-          <button class="delete-button" @click="deleteUser(user._id)">
+          <button class="delete-button" @click="deleteMovie(movie._id)">
             Delete
           </button>
         </td>
@@ -22,20 +22,20 @@
 import axios from "axios";
 
 export default {
-  name: "UsersTable",
+  name: "MoviesTable",
   props: {
-    users: Array,
+    movies: Array,
   },
-  emits: ["userDeleted"],
+  emits: ["movieDeleted"],
   methods: {
-    deleteUser: function (userId) {
+    deleteMovie: function (movieId) {
       axios
-        .delete(`${process.env.VUE_APP_BACKEND_BASE_URL}/users/${userId}`)
+        .delete(`${process.env.VUE_APP_BACKEND_BASE_URL}/movie/?id=${movieId}`)
         .then(() => {
-          this.$emit("userDeleted");
+          this.$emit("movieDeleted");
         })
         .catch((error) => {
-          alert("An error occured while deleting the user.");
+          alert("An error occured while deleting the movie.");
           console.error(error);
         });
     },
