@@ -1,15 +1,13 @@
 <template>
   <table>
     <thead>
-      <th>Email</th>
-      <th>First name</th>
-      <th>Lirst name</th>
+      <th>Nom</th>
+      <th>Date de sortie</th>
     </thead>
     <tbody>
-      <tr v-for="user in users" :key="user.email">
+      <tr v-for="movie in movies" :key="movie.email">
         <td>{{ user.email }}</td>
         <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
         <td>
           <button class="delete-button" @click="deleteUser(user._id)">
             Delete

@@ -35,6 +35,7 @@ export default {
           // Do something if call succeeded
           for (var i = 0; i < response.data.movies.length; i++) {
             this.movies[i] = response.data.movies[i];
+            console.log(response.data);
           }
         })
         .catch((error) => {

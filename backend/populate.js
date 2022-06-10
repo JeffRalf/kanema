@@ -17,6 +17,7 @@ async function populateMovies(movies) {
       date: movies[i].release_date,
       desc: movies[i].overview,
       poster_url: movies[i].poster_path,
+      tags: movies[i].genre_ids,
     });
 
     try {

@@ -6,6 +6,6 @@ const RatingSchema = new mongoose.Schema({
   rate: { type: Number },
 });
 
-const RatingModel = mongoose.model("RatingModel", RatingSchema, "movies");
+const RatingModel = mongoose.model("RatingModel", RatingSchema, "ratings");
 
 module.exports = RatingModel;
