@@ -2,20 +2,21 @@
   <table>
     <thead>
       <th>
-        <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_url" />
+        <div class="poster">
+          <a :href="`http://localhost:8080/movie/?id=` + movie._id.toString()">
+          <form
+            :action="`http://localhost:8080/movie/?id=` + movie._id.toString()"
+            method="get"
+          >
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_url" />
+          </form>
+        </a>
+        </div>
       </th>
     </thead>
     <tbody>
       <tr>
         <td>{{ movie.title }}</td>
-        <a :href="`http://localhost:8080/movie/?id=` + movie._id.toString()">
-          <form
-            :action="`http://localhost:8080/movie/?id=` + movie._id.toString()"
-            method="get"
-          >
-            <input type="button" value="More details" />
-          </form>
-        </a>
       </tr>
     </tbody>
   </table>
@@ -47,5 +48,10 @@ td {
   display: flex;
   flex-wrap: column;
   justify-content: center;
+}
+
+.poster:hover{
+  border: 2px solid #000000;
+  cursor: pointer;
 }
 </style>
